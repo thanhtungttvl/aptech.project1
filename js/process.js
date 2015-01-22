@@ -52,6 +52,16 @@ game.start = function() {
 			.setPosition(250,250)
 			.setFill('#999');	
 
+	s1.ID = "1";			
+	s2.ID = "2";			
+	s3.ID = "3";			
+	s4.ID = "4";			
+	s5.ID = "5";			
+	s6.ID = "6";			
+	s7.ID = "7";			
+	s8.ID = "8";			
+	s9.ID = "9";			
+
 	layer1.appendChild(s1);
 	layer1.appendChild(s2);
 	layer1.appendChild(s3);
@@ -65,34 +75,45 @@ game.start = function() {
 
 // random the beginning number
 	getRandom();
+	
+// hiệu ứng khi select và chạy hàm getInput
+function clickEvent (name) {
+	goog.events.listen(name,['mousedown','touchstart'],function(e){
+	    name.setFill('#3498db');
+	    e.swallow(['mouseup','touchend','touchcancel'],function(e){
+	        name.setFill('#999');
+        getInput(name.ID);
+	    });
+	});
+} // end effect
 
 // catch click event
 	goog.events.listen(s1,['click','touchend'],function(e){
-		getInput(1);
+		clickEvent(s1);
 	});
 	goog.events.listen(s2,['click','touchend'],function(e){
-		getInput(2);
+		clickEvent(s2);
 	});
 	goog.events.listen(s3,['click','touchend'],function(e){
-		getInput(3);
+		clickEvent(s3);
 	});
 	goog.events.listen(s4,['click','touchend'],function(e){
-		getInput(4);
+		clickEvent(s4);
 	});
 	goog.events.listen(s5,['click','touchend'],function(e){
-		getInput(5);
+		clickEvent(s5);
 	});
 	goog.events.listen(s6,['click','touchend'],function(e){
-		getInput(6);
+		clickEvent(s6);
 	});
 	goog.events.listen(s7,['click','touchend'],function(e){
-		getInput(7);
+		clickEvent(s7);
 	});
 	goog.events.listen(s8,['click','touchend'],function(e){
-		getInput(8);
+		clickEvent(s8);
 	});
 	goog.events.listen(s9,['click','touchend'],function(e){
-		getInput(9);
+		clickEvent(s9);
 	}); // end catch click event
 
 // random số thứ tự của ô rồi lưu vào gameSeq array
